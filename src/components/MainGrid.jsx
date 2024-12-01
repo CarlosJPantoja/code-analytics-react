@@ -15,7 +15,7 @@ import StatCard from './StatCard';
 const data = [
   {
     title: 'Crítica',
-    value: '325',
+    value: '11',
     interval: 'Last year',
     trend: 'critical',
     data: [
@@ -25,7 +25,7 @@ const data = [
   },
   {
     title: 'Alta',
-    value: '14k',
+    value: '118',
     interval: 'Last year',
     trend: 'up',
     data: [
@@ -35,7 +35,7 @@ const data = [
   },
   {
     title: 'Media',
-    value: '200k',
+    value: '624',
     interval: 'Last year',
     trend: 'neutral',
     data: [
@@ -45,7 +45,7 @@ const data = [
   },
   {
     title: 'Baja',
-    value: '200k',
+    value: '16',
     interval: 'Last year',
     trend: 'down',
     data: [
