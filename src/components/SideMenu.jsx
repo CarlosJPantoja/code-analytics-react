@@ -37,18 +37,22 @@ export default function SideMenu() {
         },
       }}
     >
-      <Box
+      <Box 
         sx={{
+          bgcolor: 'hsl(220, 35%, 97%)',
           display: 'flex',
-          mt: 'calc(var(--template-frame-height, 0px) + 4px)',
-          p: 1.5,
+          p: 0.5,
+          m: 1.5,
+          borderRadius: '8px',
         }}
       >
-        <SelectContent />
+        <img src="https://helppeoplecloud.com/wp-content/uploads/2021/11/Logo-helppeople-2021-horizontal.png" alt="logo" />
       </Box>
       <Divider />
       <MenuContent />
-      <CardAlert />
+      <Box paddingX={2} paddingBottom={2}>
+        <CardAlert />
+      </Box>
       <Stack
         direction="row"
         sx={{
@@ -70,7 +74,7 @@ export default function SideMenu() {
             Steven Rodriguez
           </Typography>
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            Steve@email.com
+            steve@gmail.com
           </Typography>
         </Box>
         <OptionsMenu />

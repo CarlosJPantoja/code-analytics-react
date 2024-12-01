@@ -3,8 +3,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import { useNotification } from './NotificationProvider.jsx';
+import { Stack } from '@mui/material';
 
 export default function CardAlert() {
   const showNotification = useNotification();
@@ -37,26 +38,17 @@ export default function CardAlert() {
     <div className="flex flex-col items-center w-full max-w-md mx-auto">
       <Card className="w-full bg-gray-50 shadow-lg rounded-lg">
         <CardContent className="flex flex-col items-start">
-          <AutoAwesomeRoundedIcon fontSize="small" className="text-blue-500" />
-          <Typography className="pt-2 text-lg font-semibold">
-            Recomendaciones
-          </Typography>
+          <Stack direction="row" spacing={1} alignItems={"center"}>
+            <TipsAndUpdatesIcon fontSize="small" />
+            <Typography className="pt-2 text-xl font-semibold">
+              Tips inteligentes
+            </Typography>
+          </Stack>
           <Typography className="pt-3 text-sm text-gray-600">
             {consejos[indiceActual]} {/* Renderiza el consejo actual */}
           </Typography>
         </CardContent>
       </Card>
-      <div className="w-full p-4">
-        <Button
-          onClick={handleClick}
-          variant="contained"
-          size="small"
-          fullWidth
-          className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded"
-        >
-          Actualizar Datos
-        </Button>
-      </div>
     </div>
   );
 }

@@ -7,6 +7,9 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import es from 'dayjs/locale/es';
+
+dayjs.locale(es);
 
 function ButtonField(props) {
   const {
@@ -54,14 +57,14 @@ ButtonField.propTypes = {
 };
 
 export default function CustomDatePicker() {
-  const [value, setValue] = React.useState(dayjs('2024-12-1'));
+  const [value, setValue] = React.useState(dayjs(new Date()));
   const [open, setOpen] = React.useState(false);
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='es'>
       <DatePicker
         value={value}
-        label={value == null ? null : value.format('MMM DD, YYYY')}
+        label={value == null ? null : dayjs(value).format('MMM DD, YYYY')}
         onChange={(newValue) => setValue(newValue)}
         slots={{ field: ButtonField }}
         slotProps={{
