@@ -12,7 +12,6 @@ import AppTheme from '../shared-theme/AppTheme';
 
 
 
-
 import {
   chartsCustomizations,
   dataGridCustomizations,

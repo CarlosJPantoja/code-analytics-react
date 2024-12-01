@@ -11,6 +11,8 @@ import HighlightedCard from './HighlightedCard';
 import PageViewsBarChart from './PageViewsBarChart';
 import SessionsChart from './SessionsChart';
 import StatCard from './StatCard';
+import PredictiveChart from "../GraficosC/PredictiveChart.jsx"
+
 
 const data = [
   {
@@ -92,6 +94,10 @@ export default function MainGrid() {
       <Typography component="h2" variant="h6" sx={{ mb: 2 }}>
         Detalles
       </Typography>
+      <Grid>
+      <PredictiveChart/>
+
+      </Grid>
       <Grid container spacing={2} columns={12}>
         <Grid size={{ xs: 12, lg: 9 }}>
           <CustomizedDataGrid />

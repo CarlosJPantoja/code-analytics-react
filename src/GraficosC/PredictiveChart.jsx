@@ -28,12 +28,23 @@ function PredictiveChart() {
   // Simulación de datos desde una API (puedes adaptarlo a tu backend real)
   useEffect(() => {
     const fetchChartData = async () => {
-      // Simula los datos retornados por una API
-      const simulatedData = {
-        labels: ["2020", "2021", "2022", "2023", "2024", "2025", "2026"],
-        current: [100, 120, 130, 140, 150], // Datos históricos
-        predicted: [150, 160, 175], // Datos proyectados
-      };
+     // Simula los datos retornados por una API
+const simulatedData = {
+  labels: [
+    "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10",
+    "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08",
+    "2025-09", "2025-10", "2025-11", "2025-12"
+  ], // Meses de 2024 a 2025
+  current: [
+    720, 725, 730, 735, 740, 745, 750, 755, 760, 765, 
+    770, 775 // Datos históricos (2024)
+  ],
+  predicted: [
+    780, 782, 785, 787, 790, 792, 794, 796, 798, 800, 
+    802, 804 // Datos proyectados (2025)
+  ]
+};
+
 
       setChartData({
         labels: simulatedData.labels,
