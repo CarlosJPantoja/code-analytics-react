@@ -11,43 +11,27 @@ import Stack from '@mui/material/Stack';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
 import {
-  IndiaFlag,
-  UsaFlag,
-  BrazilFlag,
+  CloudIcon,
   GlobeFlag,
 } from '../internals/components/CustomIcons';
 
 const data = [
-  { label: 'India', value: 50000 },
-  { label: 'USA', value: 35000 },
-  { label: 'Brazil', value: 10000 },
-  { label: 'Other', value: 5000 },
+  { label: 'Google', value: 70000 },
+  { label: 'Gobernación del Valle', value: 30000 },
 ];
 
 const countries = [
   {
-    name: 'India',
-    value: 50,
-    flag: <IndiaFlag />,
+    name: 'helppeople',
+    value: 70,
+    flag: <CloudIcon />,
     color: 'hsl(220, 25%, 65%)',
   },
   {
-    name: 'USA',
-    value: 35,
-    flag: <UsaFlag />,
-    color: 'hsl(220, 25%, 45%)',
-  },
-  {
-    name: 'Brazil',
-    value: 10,
-    flag: <BrazilFlag />,
-    color: 'hsl(220, 25%, 30%)',
-  },
-  {
-    name: 'Other',
-    value: 5,
+    name: 'Gobernación del Valle',
+    value: 30,
     flag: <GlobeFlag />,
-    color: 'hsl(220, 25%, 20%)',
+    color: 'hsl(220, 25%, 65%)',
   },
 ];
 
@@ -126,7 +110,7 @@ export default function ChartUserByCountry() {
     >
       <CardContent>
         <Typography component="h2" variant="subtitle2">
-          Users by country
+          Usuarios del Sistema
         </Typography>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <PieChart

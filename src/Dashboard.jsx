@@ -16,6 +16,7 @@ import {
   treeViewCustomizations,
 } from './theme/customizations';
 
+
 const xThemeComponents = {
   ...chartsCustomizations,
   ...dataGridCustomizations,
@@ -28,6 +29,8 @@ export default function Dashboard(props) {
     <AppTheme {...props} themeComponents={xThemeComponents}>
       <CssBaseline enableColorScheme />
       <Box sx={{ display: 'flex' }}>
+
+
         <SideMenu />
         <AppNavbar />
         {/* Main content */}

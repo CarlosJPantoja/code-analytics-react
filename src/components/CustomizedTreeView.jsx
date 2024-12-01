@@ -204,7 +204,7 @@ export default function CustomizedTreeView() {
     >
       <CardContent>
         <Typography component="h2" variant="subtitle2">
-          Product tree
+          Filtros
         </Typography>
         <RichTreeView
           items={ITEMS}
