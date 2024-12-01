@@ -4,8 +4,14 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
+import { useNotification } from './NotificationProvider.jsx';
 
 export default function CardAlert() {
+  
+const showNotification = useNotification();
+const handleClick = () => {
+  showNotification('Datos actualizados correctamente', 'success');
+};
   // Array de consejos
   const consejos = [
     "Automatiza tareas repetitivas para reducir errores.",
@@ -29,21 +35,31 @@ export default function CardAlert() {
   }, [consejos.length]);
 
   return (
-    <Card variant="outlined" className='h-[255px]' sx={{ m: 2, p: 2}}>
+    <>
+    <Card variant="outlined" className='h-[205px]' sx={{ m: 2, p: 2}}>
       <CardContent>
         <AutoAwesomeRoundedIcon fontSize="small" />
         <Typography className='pt-2' gutterBottom sx={{ fontWeight: 600 }}>
           Recomendaciones
         </Typography>
-       <div  className='pt-2 pb-12'>
+       <div  className='pt-3'>
        <Typography  variant="body2" sx={{ mb: 2, color: 'text.secondary' }}>
           {consejos[indiceActual]} {/* Renderiza el consejo actual */}
         </Typography>
+        
        </div>
-        <Button variant="contained"  size="small" fullWidth>
-          Ver más detalles
-        </Button>
+       
       </CardContent>
+      
     </Card>
+    <div className='p-4'>
+    <Button  onClick={handleClick} variant="contained"  size="small" fullWidth>
+      Actualizar Datos
+    </Button>
+    </div>
+    </>
+    
+    
   );
 }
+

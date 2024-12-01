@@ -9,6 +9,10 @@ import Header from './components/Header';
 import MainGrid from './components/MainGrid';
 import SideMenu from './components/SideMenu';
 import AppTheme from '../shared-theme/AppTheme';
+
+
+
+
 import {
   chartsCustomizations,
   dataGridCustomizations,
@@ -25,6 +29,7 @@ const xThemeComponents = {
 };
 
 export default function Dashboard(props) {
+  
   return (
     <AppTheme {...props} themeComponents={xThemeComponents}>
       <CssBaseline enableColorScheme />
@@ -56,6 +61,7 @@ export default function Dashboard(props) {
             <Header />
             <MainGrid />
           </Stack>
+          
         </Box>
       </Box>
     </AppTheme>

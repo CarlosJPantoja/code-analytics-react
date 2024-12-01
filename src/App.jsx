@@ -3,18 +3,35 @@ import 'react-toastify/dist/ReactToastify.css'; // Importa los estilos de la bib
 import GraficosPage from './Pages/GraficosPage.jsx';
 import ConfiguracionPage from './Pages/ConfiguracionPage.jsx';
 import Dashboard from './Dashboard.jsx';
+import AppTheme from '../shared-theme/AppTheme';
 import './index.css';
 
-function App() {
-  return (
-    <Router>
+import {
+  chartsCustomizations,
+  dataGridCustomizations,
+  datePickersCustomizations,
+  treeViewCustomizations,
+} from './theme/customizations';
 
+
+const xThemeComponents = {
+  ...chartsCustomizations,
+  ...dataGridCustomizations,
+  ...datePickersCustomizations,
+  ...treeViewCustomizations,
+};
+function App(props) {
+  return (
+    <AppTheme {...props} themeComponents={xThemeComponents}>
+    <Router>
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/graficos" element={<GraficosPage />} />
         <Route path="/configuracion" element={<ConfiguracionPage />} />
       </Routes>
     </Router>
+    </AppTheme>
+
   );
 }
 
