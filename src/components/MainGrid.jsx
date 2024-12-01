@@ -14,9 +14,19 @@ import StatCard from './StatCard';
 
 const data = [
   {
-    title: 'Users',
+    title: 'Crítica',
+    value: '325',
+    interval: 'Last year',
+    trend: 'critical',
+    data: [
+      1640, 1250, 970, 1130, 1050, 900, 720, 1080, 900, 450, 920, 820, 840, 600, 820,
+      780, 800, 760, 380, 740, 660, 620, 840, 500, 520, 480, 400, 360, 300, 220,
+    ],
+  },
+  {
+    title: 'Alta',
     value: '14k',
-    interval: 'Last 30 days',
+    interval: 'Last year',
     trend: 'up',
     data: [
       200, 24, 220, 260, 240, 380, 100, 240, 280, 240, 300, 340, 320, 360, 340, 380,
@@ -24,23 +34,32 @@ const data = [
     ],
   },
   {
-    title: 'Conversions',
-    value: '325',
-    interval: 'Last 30 days',
-    trend: 'down',
-    data: [
-      1640, 1250, 970, 1130, 1050, 900, 720, 1080, 900, 450, 920, 820, 840, 600, 820,
-      780, 800, 760, 380, 740, 660, 620, 840, 500, 520, 480, 400, 360, 300, 220,
-    ],
-  },
-  {
-    title: 'Event count',
+    title: 'Media',
     value: '200k',
-    interval: 'Last 30 days',
+    interval: 'Last year',
     trend: 'neutral',
     data: [
       500, 400, 510, 530, 520, 600, 530, 520, 510, 730, 520, 510, 530, 620, 510, 530,
       520, 410, 530, 520, 610, 530, 520, 610, 530, 420, 510, 430, 520, 510,
+    ],
+  },
+  {
+    title: 'Baja',
+    value: '200k',
+    interval: 'Last year',
+    trend: 'down',
+    data: [
+      760, 380, 740, 660, 620, 840, 500, 1640, 1250, 970, 1130, 1050, 900, 720, 1080, 900, 450, 920, 820, 840, 600, 820,
+      780, 800, 520, 480, 400, 360, 300, 220,
+    ],
+  },
+  {
+    title: 'Planeación',
+    value: '18',
+    interval: 'Last year',
+    trend: 'planned',
+    data: [
+      0, 3, 3, 3, 3, 4, 6, 13, 17, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 15, 15, 15, 15, 15, 15, 15, 15, 15,
     ],
   },
 ];
@@ -50,7 +69,7 @@ export default function MainGrid() {
     <Box sx={{ width: '100%', maxWidth: { sm: '100%', md: '1700px' } }}>
       {/* cards */}
       <Typography component="h2" variant="h6" sx={{ mb: 2 }}>
-        Overview
+        Tareas activas por prioridad
       </Typography>
       <Grid
         container
@@ -59,7 +78,7 @@ export default function MainGrid() {
         sx={{ mb: (theme) => theme.spacing(2) }}
       >
         {data.map((card, index) => (
-          <Grid key={index} size={{ xs: 12, sm: 6, lg: 3 }}>
+          <Grid key={index} size={{ xs: 12, sm: 4, lg: 2.4 }}>
             <StatCard {...card} />
           </Grid>
         ))}

@@ -43,9 +43,13 @@ AreaGradient.propTypes = {
 
 function StatCard({ title, value, interval, trend, data }) {
   const theme = useTheme();
-  const daysInWeek = getDaysInMonth(4, 2024);
+  const daysInWeek = getDaysInMonth(11, 2024);
 
   const trendColors = {
+    critical:
+      theme.palette.mode === 'light'
+        ? theme.palette.error.main
+        : theme.palette.error.dark,
     up:
       theme.palette.mode === 'light'
         ? theme.palette.success.main
@@ -58,9 +62,15 @@ function StatCard({ title, value, interval, trend, data }) {
       theme.palette.mode === 'light'
         ? theme.palette.grey[400]
         : theme.palette.grey[700],
+    planned:
+      theme.palette.mode === 'light'
+        ? theme.palette.success.main
+        : theme.palette.success.dark,
   };
 
   const labelColors = {
+    planned: 'success',
+    critical: 'error',
     up: 'success',
     down: 'error',
     neutral: 'default',
@@ -68,7 +78,7 @@ function StatCard({ title, value, interval, trend, data }) {
 
   const color = labelColors[trend];
   const chartColor = trendColors[trend];
-  const trendValues = { up: '+25%', down: '-25%', neutral: '+5%' };
+  const trendValues = { planned: '+40%', down: '-27%', neutral: '+5%', up: '+20%', critical: '-25%' };
 
   return (
     <Card variant="outlined" sx={{ height: '100%', flexGrow: 1 }}>
@@ -124,7 +134,7 @@ StatCard.propTypes = {
   data: PropTypes.arrayOf(PropTypes.number).isRequired,
   interval: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  trend: PropTypes.oneOf(['down', 'neutral', 'up']).isRequired,
+  trend: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
 };
 

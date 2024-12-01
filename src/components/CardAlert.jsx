@@ -40,11 +40,11 @@ export default function CardAlert() {
         <CardContent className="flex flex-col items-start">
           <Stack direction="row" spacing={1} alignItems={"center"}>
             <TipsAndUpdatesIcon fontSize="small" />
-            <Typography className="pt-2 text-xl font-semibold">
+            <Typography className="pt-2" sx={{ fontWeight: 600 }}>
               Tips inteligentes
             </Typography>
           </Stack>
-          <Typography className="pt-3 text-sm text-gray-600">
+          <Typography variant="body2" sx={{ mb: 2, color: 'text.secondary'}} className="pt-3">
             {consejos[indiceActual]} {/* Renderiza el consejo actual */}
           </Typography>
         </CardContent>
