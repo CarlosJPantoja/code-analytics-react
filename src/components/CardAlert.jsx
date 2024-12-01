@@ -7,11 +7,11 @@ import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 import { useNotification } from './NotificationProvider.jsx';
 
 export default function CardAlert() {
-  
-const showNotification = useNotification();
-const handleClick = () => {
-  showNotification('Datos actualizados correctamente', 'success');
-};
+  const showNotification = useNotification();
+  const handleClick = () => {
+    showNotification('Datos actualizados correctamente', 'success');
+  };
+
   // Array de consejos
   const consejos = [
     "Automatiza tareas repetitivas para reducir errores.",
@@ -25,41 +25,38 @@ const handleClick = () => {
   const [indiceActual, setIndiceActual] = React.useState(0);
 
   React.useEffect(() => {
-    // Configura un temporizador para actualizar el índice cada 10 segundos
+    // Configura un temporizador para actualizar el índice cada 5 segundos
     const intervalo = setInterval(() => {
       setIndiceActual((indiceActual) => (indiceActual + 1) % consejos.length);
-    }, 5000); // 10 segundos
+    }, 5000);
 
-    // Limpia el intervalo al desmontar el componente
     return () => clearInterval(intervalo);
   }, [consejos.length]);
 
   return (
-    <>
-    <Card variant="outlined" className='h-[205px]' sx={{ m: 2, p: 2}}>
-      <CardContent>
-        <AutoAwesomeRoundedIcon fontSize="small" />
-        <Typography className='pt-2' gutterBottom sx={{ fontWeight: 600 }}>
-          Recomendaciones
-        </Typography>
-       <div  className='pt-3'>
-       <Typography  variant="body2" sx={{ mb: 2, color: 'text.secondary' }}>
-          {consejos[indiceActual]} {/* Renderiza el consejo actual */}
-        </Typography>
-        
-       </div>
-       
-      </CardContent>
-      
-    </Card>
-    <div className='p-4'>
-    <Button  onClick={handleClick} variant="contained"  size="small" fullWidth>
-      Actualizar Datos
-    </Button>
+    <div className="flex flex-col items-center w-full max-w-md mx-auto">
+      <Card className="w-full bg-gray-50 shadow-lg rounded-lg">
+        <CardContent className="flex flex-col items-start">
+          <AutoAwesomeRoundedIcon fontSize="small" className="text-blue-500" />
+          <Typography className="pt-2 text-lg font-semibold">
+            Recomendaciones
+          </Typography>
+          <Typography className="pt-3 text-sm text-gray-600">
+            {consejos[indiceActual]} {/* Renderiza el consejo actual */}
+          </Typography>
+        </CardContent>
+      </Card>
+      <div className="w-full p-4">
+        <Button
+          onClick={handleClick}
+          variant="contained"
+          size="small"
+          fullWidth
+          className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded"
+        >
+          Actualizar Datos
+        </Button>
+      </div>
     </div>
-    </>
-    
-    
   );
 }
-
