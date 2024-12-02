@@ -66,9 +66,11 @@ const data = [
   },
 ];
 
-export default function MainGrid() {
+export default function MainGrid({option}) {
+  console.log(option)
   return (
     <Box sx={{ width: '100%', maxWidth: { sm: '100%', md: '1700px' } }}>
+      { option !== 'predicts' && <>
       {/* cards */}
       <Typography component="h2" variant="h6" sx={{ mb: 2 }}>
         Tareas activas por prioridad
@@ -91,13 +93,19 @@ export default function MainGrid() {
           <PageViewsBarChart />
         </Grid>
       </Grid>
+      </>
+}
+      { option == 'predicts' &&
+      <>
       <Typography component="h2" variant="h6" sx={{ mb: 2 }}>
-        Detalles
+        Predicciones
       </Typography>
-      <Grid>
+      <Grid sx={{pb: 2}}>
       <PredictiveChart/>
-
       </Grid>
+      </>
+      }
+{/** 
       <Grid container spacing={2} columns={12}>
         <Grid size={{ xs: 12, lg: 9 }}>
           <CustomizedDataGrid />
@@ -109,6 +117,7 @@ export default function MainGrid() {
           </Stack>
         </Grid>
       </Grid>
+  */}
       <Copyright sx={{ my: 4 }} />
     </Box>
   );

@@ -11,13 +11,13 @@ import SideMenu from './components/SideMenu';
 import AppTheme from '../shared-theme/AppTheme';
 
 
-
 import {
   chartsCustomizations,
   dataGridCustomizations,
   datePickersCustomizations,
   treeViewCustomizations,
 } from './theme/customizations';
+import { useParams } from 'react-router-dom';
 
 
 const xThemeComponents = {
@@ -28,6 +28,8 @@ const xThemeComponents = {
 };
 
 export default function Dashboard(props) {
+
+  const { option } = useParams();
   
   return (
     <AppTheme {...props} themeComponents={xThemeComponents}>
@@ -35,7 +37,7 @@ export default function Dashboard(props) {
       <Box sx={{ display: 'flex' }}>
 
 
-        <SideMenu />
+        <SideMenu option={option} />
         <AppNavbar />
         {/* Main content */}
         <Box
@@ -58,7 +60,7 @@ export default function Dashboard(props) {
             }}
           >
             <Header />
-            <MainGrid />
+            <MainGrid option={option} />
           </Stack>
           
         </Box>

@@ -28,26 +28,36 @@ function PredictiveChart() {
   // Simulación de datos desde una API (puedes adaptarlo a tu backend real)
   useEffect(() => {
     const fetchChartData = async () => {
-     // Simula los datos retornados por una API
-const simulatedData = {
-  labels: [
-    "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10",
-    "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08",
-    "2025-09", "2025-10", "2025-11", "2025-12"
-  ], // Meses de 2024 a 2025
-  current: [
-    720, 725, 730, 735, 740, 745, 750, 755, 760, 765, 
-    770, 775 // Datos históricos (2024)
-  ],
-  predicted: [
-    780, 782, 785, 787, 790, 792, 794, 796, 798, 800, 
-    802, 804 // Datos proyectados (2025)
-  ]
-};
+      // Simula los datos retornados por una API
+      const simulatedData = {
+        labels: [
+          "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10",
+          "2024-11", "2024-12"
+        ], // Meses de 2024 (datos históricos)
+        current: [
+          720, 725, 730, 735, 740, 745, 750, 755, 760, 765, 
+          770, 775 // Datos históricos (2024)
+        ],
+        predicted: [
+          780, 782, 785, 787, 790, 792, 794, 796, 798, 800, 
+          802, 804, 806, 808, 810, 812, 814, 816, 818, 820, 822, 824, 826, 828, 830, 832, 834, 836, 838, 840, 842, 844, 846 // Datos proyectados (hasta junio 2025)
+        ]
+      };
 
+      // Nuevas etiquetas que abarcan desde enero 2024 hasta junio 2025
+      const extendedLabels = [
+        ...simulatedData.labels, 
+        "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06"
+      ];
+
+      // Nuevos datos de predicción hasta junio 2025
+      const newPredictedData = [
+        ...simulatedData.current, 
+        ...simulatedData.predicted.slice(0, 6) // Tomamos solo hasta junio de 2025
+      ];
 
       setChartData({
-        labels: simulatedData.labels,
+        labels: extendedLabels,
         datasets: [
           {
             label: "Datos Actuales",
@@ -59,7 +69,7 @@ const simulatedData = {
           },
           {
             label: "Datos Proyectados",
-            data: simulatedData.predicted,
+            data: newPredictedData,
             borderColor: "rgba(236, 72, 153, 0.8)", // Línea punteada
             borderWidth: 2,
             borderDash: [5, 5],

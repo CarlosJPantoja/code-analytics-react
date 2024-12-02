@@ -11,10 +11,11 @@ import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
 import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
+import { useNavigate } from 'react-router-dom';
 
 const mainListItems = [
-  { text: 'Inicio', icon: <HomeRoundedIcon /> },
-  { text: 'Predicciones', icon: <InsightsRoundedIcon /> },
+  { text: 'Inicio', icon: <HomeRoundedIcon />, link: '/' },
+  { text: 'Predicciones', icon: <InsightsRoundedIcon />, link: '/predicts' },
   { text: 'Recomendaciones', icon: <AutoAwesomeRoundedIcon /> },
 ];
 
@@ -24,13 +25,17 @@ const secondaryListItems = [
   { text: 'Ayuda', icon: <HelpRoundedIcon /> },
 ];
 
-export default function MenuContent() {
+export default function MenuContent({option}) {
+  const selected = option === 'predicts' ? 1 : 0;
+
+  const navigate = useNavigate();
+
   return (
     <Stack sx={{ flexGrow: 1, p: 1, justifyContent: 'space-between' }}>
       <List dense>
         {mainListItems.map((item, index) => (
           <ListItem key={index} disablePadding sx={{ display: 'block' }}>
-            <ListItemButton selected={index === 0}>
+            <ListItemButton selected={index === selected} onClick={() => {navigate(item.link)}}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>

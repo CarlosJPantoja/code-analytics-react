@@ -26,7 +26,7 @@ const Drawer = styled(MuiDrawer)({
   },
 });
 
-export default function SideMenu() {
+export default function SideMenu({option}) {
   return (
     <Drawer
       variant="permanent"
@@ -49,7 +49,7 @@ export default function SideMenu() {
         <img src="https://helppeoplecloud.com/wp-content/uploads/2021/11/Logo-helppeople-2021-horizontal.png" alt="logo" />
       </Box>
       <Divider />
-      <MenuContent />
+      <MenuContent option={option} />
       <Box paddingX={2} paddingBottom={2}>
         <CardAlert />
       </Box>

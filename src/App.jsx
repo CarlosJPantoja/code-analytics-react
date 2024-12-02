@@ -12,6 +12,7 @@ import {
   datePickersCustomizations,
   treeViewCustomizations,
 } from './theme/customizations';
+import SignIn from './SingIn.jsx';
 
 
 const xThemeComponents = {
@@ -25,9 +26,9 @@ function App(props) {
     <AppTheme {...props} themeComponents={xThemeComponents}>
     <Router>
       <Routes>
+        <Route path="/login" element={<SignIn />} />
         <Route path="/" element={<Dashboard />} />
-        <Route path="/graficos" element={<GraficosPage />} />
-        <Route path="/configuracion" element={<ConfiguracionPage />} />
+        <Route path="/:option" element={<Dashboard />} />
       </Routes>
     </Router>
     </AppTheme>
